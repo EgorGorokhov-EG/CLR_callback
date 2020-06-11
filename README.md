@@ -1,2 +1,3 @@
-# CLR_callback
-CLR Implementation with TF/Keras
+# CLR Keras callback
+CLR Implementation with Keras/TF
+
