@@ -1,4 +1,20 @@
 class CyclicLR(callbacks.Callback):
+    """Callback implements a Cyclical Learning Rate
+    method for training Keras/TF neural networks. 
+    Source: https://arxiv.org/abs/1506.01186.
+    
+    Attributes:
+        base_lr: the minimal learning rate in a cycle.
+        max_lr: the maximum learning rate in a cycle.
+        step_size: the half of the cycle length. Authors of the paper suggest
+            setting step_size 2-8 x training iterations in epoch.
+        policy ['triangular', 'triangular2', 'exp_rang']: learning rate changing policy.
+        scale_fn: a scaling function to get a custom policy.
+        mode ['cycle', 'iterations']: defines whether scale_fn is evaluated on 
+            cycle number or cycle iterations.
+        gamma: constant in 'exp_range' policy. gamma**(cycle iterations)
+   """
+        
     def __init__(self, base_lr=0.001,
                  max_lr=0.006, 
                  step_size=2000,
